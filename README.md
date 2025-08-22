@@ -88,7 +88,10 @@ TODO: Add License information
 
 ## 🙏 Acknowledgments
 
-TODO: Add Acknowledgements (data sources, model architecture inspiration, etc.)
+**CNN Architecture**
+
+<img src="" alt="Alt Text" width="300" height="200">
+
 
 ---
 

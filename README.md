@@ -83,7 +83,8 @@ No formal testing framework is included in this project. Thorough testing would 
 
 ## 📄 License
 
-TODO: Add License information
+All rights reserved. No license is granted for the use, modification, or distribution of this code.
+
 
 
 ## 🙏 Acknowledgments

@@ -1,144 +1,101 @@
-"# Covid-detection" 
-"# Covid-detection" 
-"# Covid-detection" 
-"# Covid-detection" 
+# 🦠 Covid-Detection
 
-Creating a README file for a COVID detection project using Convolutional Neural Networks (CNNs) is a great way to document your project and make it easy for others to understand and use. Below is a template you can follow and customize based on your project's specifics:
+<div align="center">
 
----
+[![GitHub stars](https://img.shields.io/github/stars/rithaa24/Covid-detection?style=for-the-badge)](https://github.com/rithaa24/Covid-detection/stargazers)
 
-# COVID Detection Using Convolutional Neural Networks (CNNs)
+[![GitHub forks](https://img.shields.io/github/forks/rithaa24/Covid-detection?style=for-the-badge)](https://github.com/rithaa24/Covid-detection/network)
 
-## Overview
+[![GitHub issues](https://img.shields.io/github/issues/rithaa24/Covid-detection?style=for-the-badge)](https://github.com/rithaa24/Covid-detection/issues)
 
-This project leverages Convolutional Neural Networks (CNNs) to detect COVID-19 from medical images such as X-rays or CT scans. The goal is to provide an efficient and automated tool to aid in the early diagnosis of COVID-19.
 
-## Table of Contents
+**A Python-based COVID-19 detection model using pre-trained Convolutional Neural Network (CNN).**
 
-- [Project Structure](#project-structure)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Training the Model](#training-the-model)
-- [Evaluation](#evaluation)
-- [Usage](#usage)
-- [Results](#results)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+</div>
 
-## Project Structure
+## 📖 Overview
+
+This project implements a COVID-19 detection model using a pre-trained Convolutional Neural Network (CNN).  The model is trained on a dataset of chest X-ray images to classify images as either showing signs of COVID-19 or not. The provided repository includes the trained model (`model.h5`), its architecture (`model.json`), and a `main.py` script for making predictions on new images.  The model is intended for research and educational purposes.  It's important to note that this model should not be used for clinical diagnosis.
+
+## ✨ Features
+
+- **COVID-19 Classification:**  Accurately classifies chest X-ray images as COVID-19 positive or negative.
+- **Pre-trained Model:** Leverages a pre-trained CNN model, reducing training time and computational resources.
+- **Prediction Script:** Includes a Python script (`main.py`) to easily make predictions on new images.
+- **Dataset Included:**  Requires separate datasets (TestingDataset, TrainingDataset) for training and testing the model.  These datasets are not included in this repository and will need to be provided separately.
+
+
+## 🛠️ Tech Stack
+
+- **Programming Language:** Python
+- **Deep Learning Framework:** TensorFlow/Keras (inferred from model file extensions)
+- **Model Type:** Convolutional Neural Network (CNN)
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.x (Ensure you have the required version compatible with TensorFlow/Keras)
+- TensorFlow/Keras:  `pip install tensorflow`
+
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/rithaa24/Covid-detection.git
+   cd Covid-detection
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install tensorflow
+   ```
+
+3. **Prepare Datasets:** Download and place your COVID-19 chest X-ray datasets into `TrainingDataset` and `TestingDataset` folders within the project directory.  Ensure the datasets are structured appropriately for the model's input.
+
+4. **Run the prediction script:** (Requires a properly formatted image as input, the structure of which needs to match how the training data was formatted)
+   ```bash
+   python main.py <path_to_image>
+   ```
+
+
+## 📁 Project Structure
 
 ```
-COVID_Detection_CNN/
-│
-├── data/
-│   ├── train/
-│   ├── val/
-│   └── test/
-│
-├── notebooks/
-│   └── exploration.ipynb
-│
-├── src/
-│   ├── model.py
-│   ├── data_preprocessing.py
-│   └── utils.py
-│
-├── requirements.txt
+Covid-detection/
 ├── README.md
-└── main.py
+├── TrainingDataset/  # Directory for training data (user-provided)
+├── TestingDataset/   # Directory for testing data (user-provided)
+├── main.py          # Main script for making predictions
+├── model.h5         # Trained model file
+└── model.json       # Model architecture file
 ```
 
-- **data/**: Directory containing medical images organized into training, validation, and test sets.
-- **notebooks/**: Jupyter notebooks for data exploration and model experimentation.
-- **src/**: Source code for data preprocessing, model definition, and utility functions.
-- **requirements.txt**: File listing the Python dependencies required for the project.
-- **README.md**: This file.
-- **main.py**: Main script for running the training and evaluation pipeline.
+## ⚙️ Configuration
 
-## Requirements
+The `main.py` script currently does not use any external configuration files or environment variables.  The model's behavior is defined directly within the script itself, though modifications can be made to the script to handle this.
 
-To run this project, you need to have the following Python packages installed:
+## 🧪 Testing
 
-- TensorFlow
-- Keras
-- NumPy
-- Pandas
-- Matplotlib
-- Scikit-learn
-- OpenCV
+No formal testing framework is included in this project. Thorough testing would involve evaluating the model's performance on a separate held-out test dataset using appropriate metrics (accuracy, precision, recall, F1-score, etc.).
 
-You can install the required packages using the `requirements.txt` file:
 
-```bash
-pip install -r requirements.txt
-```
+## 📄 License
 
-## Setup
+TODO: Add License information
 
-1. **Clone the Repository**
 
-   ```bash
-   git clone https://github.com/yourusername/COVID_Detection_CNN.git
-   cd COVID_Detection_CNN
-   ```
+## 🙏 Acknowledgments
 
-2. **Install Dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Prepare Data**
-
-   Ensure that you have your medical images organized in the `data/` directory according to the structure mentioned above. You may need to preprocess these images to match the input requirements of the CNN model.
-
-## Training the Model
-
-To train the CNN model, run the following command:
-
-```bash
-python main.py --train
-```
-
-This will start the training process using the images in the `data/train/` directory and validate the model using the `data/val/` directory.
-
-## Evaluation
-
-After training, you can evaluate the model on the test set:
-
-```bash
-python main.py --evaluate
-```
-
-The model will generate metrics such as accuracy, precision, recall, and F1-score on the images in the `data/test/` directory.
-
-## Usage
-
-Once trained, you can use the model to make predictions on new medical images. For example:
-
-```python
-from src.model import load_model, predict_image
-
-model = load_model('path/to/saved/model.h5')
-prediction = predict_image('path/to/new/image.jpg', model)
-print("Prediction:", prediction)
-```
-
-## Results
-
-Provide a summary of your model's performance here. Include metrics such as accuracy, precision, recall, and F1-score. You might also want to include some example predictions and comparisons with ground truth.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgments
-
-- [TensorFlow](https://www.tensorflow.org/) for the deep learning framework.
-- [Keras](https://keras.io/) for its high-level API for building and training models.
-- [OpenCV](https://opencv.org/) for image processing tools.
-- Any other resources, datasets, or individuals who contributed to the project.
+TODO: Add Acknowledgements (data sources, model architecture inspiration, etc.)
 
 ---
 
-Feel free to customize this template based on your specific project requirements and structure.
+<div align="center">
+
+**Made with ❤️ by rithaa24**
+
+</div>
+
+

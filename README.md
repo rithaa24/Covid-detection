@@ -90,7 +90,7 @@ TODO: Add License information
 
 **CNN Architecture**
 
-<img src="" alt="Alt Text" width="300" height="200">
+<img src="generated-image.png" alt="Alt Text" width="300" height="200">
 
 
 ---
